@@ -69,28 +69,27 @@ public class InventoryRepository {
 		return item;
 	}
 
-	public void readProducts(){
-		//ClassLoader classLoader = InventoryRepository.class.getClassLoader();
+	public void readProducts() {
 		File file = new File(filename);
-
 		ObservableList<Product> listP = FXCollections.observableArrayList();
-		BufferedReader br = null;
-		try {
-			br = new BufferedReader(new FileReader(file));
-			String line = null;
-			while((line=br.readLine())!=null){
-				Product product=getProductFromString(line);
-				if (product!=null)
+
+		try (BufferedReader br = new BufferedReader(new FileReader(file))) {  // Try-with-resources
+			String line;
+			while ((line = br.readLine()) != null) {
+				Product product = getProductFromString(line);
+				if (product != null) {
 					listP.add(product);
+				}
 			}
-			br.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 		inventory.setProducts(listP);
 	}
+
 
 	private Product getProductFromString(String line){
 		Product product=null;
@@ -142,9 +141,17 @@ public class InventoryRepository {
 				String line=pr.toString()+",";
 				ObservableList<Part> list= pr.getAssociatedParts();
 				int index=0;
-				while(index<list.size()-1){
-					line=line+list.get(index).getPartId()+":";
-					index++;
+				StringBuilder builder = new StringBuilder();
+				for (int i = 0; i < list.size(); i++) {
+					builder.append(list.get(i).getPartId());
+					if (i < list.size() - 1) {
+						builder.append(":");
+					}
+				}
+				if (index==list.size()-1) {
+					line+=builder.toString();
+				} else {
+					line+=builder.toString();
 				}
 				if (index==list.size()-1)
 					line=line+list.get(index).getPartId();
