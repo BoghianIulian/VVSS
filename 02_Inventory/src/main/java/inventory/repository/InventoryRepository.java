@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 
 public class InventoryRepository {
 
-	private static String filename = "data/items.txt";
+	private static String filename = "C:\\Users\\Iulian\\Documents\\GitHub\\VVSS\\02_Inventory\\data\\items.txt";
 	private Inventory inventory;
 	public InventoryRepository(){
 		this.inventory=new Inventory();
