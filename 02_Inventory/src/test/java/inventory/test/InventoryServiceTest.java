@@ -1,11 +1,9 @@
-
 import inventory.Validator.ValidatorException;
 import inventory.repository.InventoryRepository;
 import inventory.service.InventoryService;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -29,12 +27,14 @@ class InventoryServiceTest {
 
     // BVA - Valide
     @Test
+    @Tag("BVA")
     @DisplayName("BVA: InStock = min")
     void testBVA_ValidMin() {
         assertDoesNotThrow(() -> inventoryService.addInhousePart("Ax", 10.0, 5, 5, 10, 101));
     }
 
     @Test
+    @Tag("BVA")
     @DisplayName("BVA: InStock = max")
     void testBVA_ValidMax() {
         assertDoesNotThrow(() -> inventoryService.addInhousePart("Piulita", 9.5, 10, 5, 10, 202));
@@ -42,6 +42,7 @@ class InventoryServiceTest {
 
     // BVA - Invalide
     @Test
+    @Tag("BVA")
     @DisplayName("BVA: InStock < min")
     void testBVA_InvalidBelowMin() {
         ValidatorException ex = assertThrows(ValidatorException.class, () ->
@@ -49,7 +50,8 @@ class InventoryServiceTest {
         assertTrue(ex.getMessage().contains("In stock must be between min and max"));
     }
 
-    @Test
+    @RepeatedTest(3)
+    @Tag("BVA")
     @DisplayName("BVA: InStock > max")
     void testBVA_InvalidAboveMax() {
         ValidatorException ex = assertThrows(ValidatorException.class, () ->
@@ -58,13 +60,16 @@ class InventoryServiceTest {
     }
 
     // ECP - Valide
-    @Test
-    @DisplayName("ECP: Valori normale")
-    void testECP_ValidLow() {
-        assertDoesNotThrow(() -> inventoryService.addInhousePart("Motoras", 20.0, 7, 5, 15, 505));
+    @ParameterizedTest
+    @Tag("ECP")
+    @ValueSource(strings = {"Motoras", "Surubelnita", "Freze"})
+    @DisplayName("ECP: Valori normale pentru diverse piese")
+    void testECP_ValidLow(String partName) {
+        assertDoesNotThrow(() -> inventoryService.addInhousePart(partName, 20.0, 7, 5, 15, 505));
     }
 
     @Test
+    @Tag("ECP")
     @DisplayName("ECP: Valori mari")
     void testECP_ValidHigh() {
         assertDoesNotThrow(() -> inventoryService.addInhousePart("Rotor", 50.0, 18, 10, 20, 606));
@@ -72,6 +77,7 @@ class InventoryServiceTest {
 
     // ECP - Invalide
     @Test
+    @Tag("ECP")
     @DisplayName("ECP: Nume gol")
     void testECP_InvalidEmptyName() {
         ValidatorException ex = assertThrows(ValidatorException.class, () ->
@@ -80,6 +86,7 @@ class InventoryServiceTest {
     }
 
     @Test
+    @Tag("ECP")
     @DisplayName("ECP: min > max")
     void testECP_InvalidMinMax() {
         ValidatorException ex = assertThrows(ValidatorException.class, () ->
