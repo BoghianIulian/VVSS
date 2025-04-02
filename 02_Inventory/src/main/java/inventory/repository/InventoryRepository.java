@@ -117,6 +117,7 @@ public class InventoryRepository {
 			product = new Product(id, name, price, inStock, minStock, maxStock, list);
 			product.setAssociatedParts(list);
 		}
+
 		return product;
 	}
 

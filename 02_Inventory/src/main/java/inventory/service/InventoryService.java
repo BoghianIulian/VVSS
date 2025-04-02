@@ -4,17 +4,25 @@ import inventory.model.*;
 import inventory.repository.InventoryRepository;
 import javafx.collections.ObservableList;
 
+import inventory.Validator.PartValidator;
+import inventory.Validator.ValidatorException;
+
 public class InventoryService {
 
     private InventoryRepository repo;
-    public InventoryService(InventoryRepository repo){
-        this.repo =repo;
+    private PartValidator validator;
+
+    public InventoryService(InventoryRepository repo) {
+        this.repo = repo;
+        this.validator = new PartValidator(); // Inițializezi validatorul aici
     }
 
-    public void addInhousePart(String name, double price, int inStock, int min, int  max, int partDynamicValue){
+    public void addInhousePart(String name, double price, int inStock, int min, int max, int partDynamicValue) {
         InhousePart inhousePart = new InhousePart(repo.getAutoPartId(), name, price, inStock, min, max, partDynamicValue);
+        validator.validate(inhousePart); // Validezi obiectul
         repo.addPart(inhousePart);
     }
+
     public void addOutsourcePart(String name, double price, int inStock, int min, int  max, String partDynamicValue){
         OutsourcedPart outsourcedPart = new OutsourcedPart(repo.getAutoPartId(), name, price, inStock, min, max, partDynamicValue);
         repo.addPart(outsourcedPart);
