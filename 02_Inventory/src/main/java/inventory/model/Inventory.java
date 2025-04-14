@@ -41,17 +41,34 @@ public class Inventory {
      * @return 
      */
     public Product lookupProduct(String searchItem) {
-        boolean isFound = false;
-        for(Product p: products) {
-            if(p.getName().contains(searchItem) || (p.getProductId()+"").equals(searchItem)) return p;
-            isFound = true;
+        boolean isFound = false; //1
+        boolean idMatch = false;
+        Product foundProduct = null;
+
+        for(Product p: products) {  // 2
+
+            if(p.getName().contains(searchItem))//3
+            {
+                foundProduct = p; //4
+                isFound = true;
+            }
+
+            if(String.valueOf(p.getProductId()).equals(searchItem)){//5
+                idMatch = true;  //6
+                foundProduct = p;
+            }
+
+            if(foundProduct != null) //7
+                break; //8
+
+
         }
-        if(isFound == false) {
-            Product product = new Product(0, null, 0.0, 0, 0, 0, null);
+        if(isFound == false && idMatch == false) {//9
+            Product product = new Product(0, null, 0.0, 0, 0, 0, null);//10
             return product;
         }
-        return null;
-    }
+        return foundProduct;//11
+    }//12
     
     /**
      * Update product at given index
