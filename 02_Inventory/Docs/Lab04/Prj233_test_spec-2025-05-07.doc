@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><title>testspec Proiect233 - biar2470_IntT</title>
+<link type="text/css" rel="stylesheet" href="https://www.scs.ubbcluj.ro/testlink/gui/themes/default/css/tl_documents.css" />
+<style type="text/css" media="print">.notprintable { display:none;}</style>
+</head>
+<body>
+<div>
+<div style="float:right;">TestLink Community [configure $tlCfg-&gt;document_generator-&gt;company_name]</div>
+<div>&nbsp;</div><hr />
+<p style="text-align: center;"><img alt="TestLink logo" title="configure using $tlCfg->document_generator->company_logo"  width= height= src="https://www.scs.ubbcluj.ro/testlink/gui/themes/default/images/tl-logo-transparent-25.png" /></p></div>
+<div class="doc_title"><p>Test Specification</p></div>
+<div class="doc_title" style="text-align:left;margin: auto;"><p>Test Project: Proiect233<br/>Test Suite: Proiect233 - biar2470_IntT</p></div>
+<div class="summary"><p id="printedby">Printed by TestLink on 07/05/2025</p></div>
+<div class="pagefooter" id="copyright">2012 &copy; TestLink Community</div>
+<h1 class="general" style="page-break-before: always">Table Of Contents</h1><div class="toc"><p style="padding-left: 20px;"><b><a href="#toc_1">1.biar2470_IntT</a></b></p>
+<p style="padding-left: 45px;"><a href="#toc_tc26062">Prj233-107: Step1</a></p><p style="padding-left: 45px;"><a href="#toc_tc26066">Prj233-109: Step2</a></p><p style="padding-left: 45px;"><a href="#toc_tc26070">Prj233-111: Step3</a></p></div><h1 class="doclevel" >Scope</h1>
+<div class="txtlevel"><p>Proiect de testare pentru studentii din grupa 233.</p></div>
+ <br/><a name='toc_1'></a>
+<h1 class='doclevel'>1.Test Suite : biar2470_IntT</h1>
+<div><p>Teste top-down</p>
+
+<p>&nbsp;</p>
+</div><a name="toc_tc26062"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj233-107: Step1&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">biar2470</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>-se testeaza functia de addPart din repository folosind spy</p>
+
+<p>-se verifica daca functia addPart din repo a fost apelata pe spyInventory o singura data</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>-atriutele piesei create sa fie valide</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >test.Repository.InventoryRepositoryTest</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >test.Repository.InventoryRepositoryTest#testAddPartWritesToInventory</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">biar2470_F01:  Adding a new part [Version : 1]<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
+</table>
+</div>
+<a name="toc_tc26066"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj233-109: Step2&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">biar2470</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>se testeaza integrarea intre InventoryService si InventoryRepository folosind un inventory de tip mock(cand se creeaza repo, se seteaza inventory-ul mock)</p>
+
+<p>&nbsp;</p>
+
+<p>-testam daca functia addPart din entitate se apeleaza o singura data la apelarea functiei addInhousePart din service(precizam la inventory sa se returneze valoarea &quot;1&quot; pentru id-ul generat automat)</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>-functiile din clase folosite in test sa fie implementate corect</p>
+
+<p>-atribute valide la crearea obiectului</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >test.InventoryIntegrationStep2Test</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >test.InventoryIntegrationStep2Test.testAddInhousePart</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">biar2470_F01:  Adding a new part [Version : 1]<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
+</table>
+</div>
+<a name="toc_tc26070"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj233-111: Step3&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">biar2470</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>-se testeaza integrarea completa intre InventoryService, InventoryRepository si Inventory&nbsp;.</p>
+
+<p>se testeaza functia de addInhousePart din Service, dupa care apelam lookupPart(nume obiect).</p>
+
+<p>-pentru a testa integrarea , apelam functiile de get din entitatea Inventory</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>-inventory sa fie gol</p>
+
+<p>-datele valide la crearea obiectelor</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >test.InventoryIntegrationStep3Test</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >test.InventoryIntegrationStep3Test.testAddAndGetPartIntegrated</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">biar2470_F01:  Adding a new part [Version : 1]<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
+</table>
+</div>
+
+</body>
+</html>
