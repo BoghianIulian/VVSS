@@ -1,3 +1,5 @@
+package Integration;
+
 import inventory.model.InhousePart;
 import inventory.model.Inventory;
 import inventory.model.Part;

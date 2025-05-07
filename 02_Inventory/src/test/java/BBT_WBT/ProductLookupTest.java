@@ -1,3 +1,5 @@
+package BBT_WBT;
+
 import inventory.model.Inventory;
 import inventory.model.Product;
 import org.junit.jupiter.api.BeforeEach;

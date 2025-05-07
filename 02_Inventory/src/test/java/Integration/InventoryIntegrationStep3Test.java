@@ -1,3 +1,5 @@
+package Integration;
+
 import inventory.model.Part;
 import inventory.model.Product;
 import inventory.repository.InventoryRepository;

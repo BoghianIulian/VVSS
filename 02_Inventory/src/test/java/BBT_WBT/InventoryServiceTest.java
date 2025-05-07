@@ -1,3 +1,5 @@
+package BBT_WBT;
+
 import inventory.Validator.ValidatorException;
 import inventory.repository.InventoryRepository;
 import inventory.service.InventoryService;
